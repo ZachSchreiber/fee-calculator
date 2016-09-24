@@ -12,12 +12,12 @@ function add(a,b) {
   return result;
 }
 
- function sub(a,b){
+ function subtract(a,b){
    result = a - b;
    return result;
  }
 
- function multi(a,b) {
+ function multiply(a,b) {
    result = a * b;
    return result;
  }
@@ -27,7 +27,24 @@ function add(a,b) {
    return result;
  }
 
+ function updateTotal(number1, number2) {     // ******This is my contribution, it does't
+       switch (operator) {                    //  work, but it seems like it should. it's
+         case "+":                            // It's called bellow.
+         buffer = add(number1,  number2);
+         break;
+         case "-":
+         buffer = subtract(number1,  number2);
+         break;
+         case "x":
+         buffer = multiply(number1,  number2);
+         break;
+         case "/":
+         buffer = divide(number1, number2);
+         break;
 
+       }
+
+}
 
 
 // TODO: DEFINE YOUR FUNCTIONS HERE
@@ -44,6 +61,7 @@ function add(a,b) {
 function handleButtonClick(buttonValue) {
 
   switch (buttonValue) {
+
     case "1":
     case "2":
     case "3":
@@ -66,14 +84,25 @@ function handleButtonClick(buttonValue) {
   if (buffer.length > 0) {
     buffer = currentNum + buttonValue;
   }
+  break;
+
   case "+":
   case "-":
   case "x":
   case "/":
+  if
+    (number2 != undefined && operator != undefined) {    //***Updatetotal() should be called here
+        updateTotal(number1, number2);
+        break;
+  }
+  else {
   number1 = Number(currentNum);
   operator = buttonValue;
   newNumber = true;
   break;
+}
+
+
 
 /** Tried adding this to get runnning total, nope.
  case "+":
@@ -102,10 +131,6 @@ function handleButtonClick(buttonValue) {
 }
 **/
   case "=":
-//  case "+":
-  //case "-":     tried adding these to get running total, nope.
-//  case "x":
-//  case "/":
   if  (number1 != undefined && operator != undefined) {
       number2 = Number(currentNum);
       switch (operator) {
@@ -116,7 +141,7 @@ function handleButtonClick(buttonValue) {
         buffer = subtract(number1,  number2);
         break;
         case "x":
-        buffer = multi(number1,  number2);
+        buffer = multiply(number1,  number2);
         break;
         case "/":
         buffer = divide(number1, number2);
