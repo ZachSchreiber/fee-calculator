@@ -1,6 +1,5 @@
 // TODO: DEFINE ANY VARIABLES HERE
 
-// var current = display;
 var currentNumber = "";
 var number1;
 var number2;
@@ -148,12 +147,7 @@ function handleButtonClick(buttonValue) {
       }
     }
 
-
-    console.log("the current contents are " + buffer);
-
   }
-
-  console.log("the current contents are " + buffer);
 
   if (buttonValue === "clear") {
     currentNumber = "";
